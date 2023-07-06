@@ -13,5 +13,11 @@ CORS(app, resources={r'/*':{'origins': 'http://localhost:8080',"allow_headers": 
 def greetings():
     return("Hello, world!")
 
+@app.route('/shark', methods=['GET'])
+def shark():
+    return("SHARK! 🦈")
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)

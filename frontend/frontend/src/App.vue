@@ -1,8 +1,21 @@
+App.vue
 <template>
   <div id="app">
     <router-view />
+    <!-- <div class="bg-slate-500">COCK 🍆</div> -->
   </div>
 </template>
+
+<script>
+  
+  export default {
+  name: "App",
+  // Add an empty "render" function
+  render() {
+    return this.$slots.default;
+  },
+};
+</script>
 
 <style>
 #app {
