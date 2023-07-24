@@ -1,20 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Shark from "../components/Shark.vue";
-import Genre from "../components/Genre.vue";
+import GenreList from "../components/GenreList.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/shark",
-    name: "Shark",
-    component: Shark,
-  },
-  {
     path: "/genre",
-    name: "Genre",
-    component: Genre,
+    name: "GenreList",
+    component: GenreList,
   },
 ];
 

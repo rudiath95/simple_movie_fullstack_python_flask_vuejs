@@ -6,6 +6,7 @@ module.exports = {
   },
   rules: {
     'vue/multi-word-component-names': 'off',
+    'no-console': 'off',
   },
   extends: [
     '@nuxtjs/eslint-config-typescript',
