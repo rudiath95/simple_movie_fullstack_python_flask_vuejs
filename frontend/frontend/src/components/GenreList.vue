@@ -1,17 +1,22 @@
 <template>
     <div class="p-4">
       <h2 class="text-2xl font-bold mb-4">Genre List</h2>
+      <GenreAdd @genre-added="fetchGenres" />
+
       <ConfirmationModal
         :is-open="isConfirmationModalOpen"
-        :modal-name="modalToDeleteName" @confirmed="deleteConfirmed" @closed="closeConfirmationModal" />
+        :modal-name="modalToDeleteName" 
+        @confirmed="deleteConfirmed" 
+        @closed="closeConfirmationModal" 
+      />
     
       <div class="overflow-x-auto">
         <table class="w-full table-auto">
           <thead>
-            <tr>
-              <th class="px-4 py-2 bg-gray-100">ID</th>
-              <th class="px-4 py-2 bg-gray-100 w-3/4">Name (Double Click to Edit)</th>
-              <th class="px-4 py-2 bg-gray-100">Actions</th>
+            <tr class="bg-gray-500 text-gray-50">
+              <th class="px-4 py-2 ">ID</th>
+              <th class="px-4 py-2  w-4/5">Name <span class="text-gray-400 text-sm">[Double Click to Edit]</span></th>
+              <th class="px-4 py-2 ">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -26,14 +31,14 @@
                 <input
                     v-else
                     v-model="genre.name"
-                    class="genre-input"
+                    class="genre-input w-full text-center"
                     type="text"
                     :autofocus="genre.id === activeGenreId"
                     @blur="saveGenreName(genre)"
                     @keyup.enter="saveGenreName(genre)"
                 />
                 </td>
-                <td class="px-4 py-2 flex items-center space-x-4">
+                <td class="px-4 py-2 grid justify-items-end space-x-4">
                     <button
                     type="button"
                     class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center"
@@ -66,10 +71,12 @@
 <script>
 import axios from 'axios';
 import ConfirmationModal from './ConfirmationModal.vue';
+import GenreAdd from './GenreAdd.vue';
 
 export default {
   components: {
     ConfirmationModal,
+    GenreAdd,
   },
   data() {
     return {
@@ -123,7 +130,7 @@ export default {
       this.isConfirmationModalOpen = true;
       this.genreToDeleteId = genreId;
       this.modalToDeleteName = modalName; 
-      console.log(modalName);
+    //   console.log(modalName);
     },
 
     closeConfirmationModal() {
@@ -133,6 +140,7 @@ export default {
 
     deleteConfirmed() {
       this.deleteGenre(this.genreToDeleteId);
+      this.isConfirmationModalOpen = false;
     },
 
     deleteGenre(genreId) {
