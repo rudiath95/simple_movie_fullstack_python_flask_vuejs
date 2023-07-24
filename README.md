@@ -1,14 +1,9 @@
 # simple_movie_fullstack_python_flask_vuejs
 
-```
-$ cd backend
-```
-```
-$ pipenv install -r .\requirements.txt
-```
-```
-$ npm install -g @vue/cli
-```
-```
-$ npm install --save-dev eslint eslint-plugin-vue
-```
+# WIP Available API
+
+### Back End
+> http://localhost:5000/genre
+
+### Front End
+> http://localhost:8080/genre
