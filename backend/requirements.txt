@@ -1,5 +1,6 @@
 Flask 
 Flask-Cors 
-marshmallow
+flask_marshmallow
 python-dotenv
 flask_sqlalchemy
+psycopg2
