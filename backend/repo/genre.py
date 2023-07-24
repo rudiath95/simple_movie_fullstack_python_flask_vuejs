@@ -1,4 +1,3 @@
-# repo/genre.py
 from models.genre import Genre, db, genres_schema , genre_schema
 
 def create_genre(name):

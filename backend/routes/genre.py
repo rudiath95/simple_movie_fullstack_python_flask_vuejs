@@ -1,4 +1,3 @@
-# routes/genre.py
 from flask import Blueprint, jsonify, request
 from repo.genre import (
     get_all_genres,
