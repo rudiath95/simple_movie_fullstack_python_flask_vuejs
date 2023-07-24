@@ -12,6 +12,7 @@
           required
         />
         <button
+          v-if="showCancelButton"
           type="button"
           class="absolute top-1 right-0 mr-2 px-4 py-2 text-gray-500 font-medium"
           @click="cancelAdd"
@@ -39,6 +40,11 @@ export default {
     return {
       newGenreName: '',
     };
+  },
+  computed: {
+    showCancelButton() {
+      return this.newGenreName.trim() !== '';
+    },
   },
   methods: {
     addGenre() {
